@@ -9,7 +9,7 @@ include PPtest.gfn
 clear
 set verbose off
 open \
-"C:\Users\Anna Karina\Documents\Asistente Dr. Ventosa\Paper\Code & Data\Model Data Levels.csv" #path
+"...\Model Data Levels.csv" #path
 setobs 12 1960:01 --time-series #define frequency
 
 #Seasonal adjustment already made
