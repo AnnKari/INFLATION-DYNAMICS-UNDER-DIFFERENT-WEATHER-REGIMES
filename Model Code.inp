@@ -12,7 +12,7 @@ open \
 "...\Model Data Levels.csv" #path
 setobs 12 1960:01 --time-series #define frequency
 
-#Seasonal adjustment already made
+#Seasonal adjustment already done
 
 #Anual rates
 
@@ -45,7 +45,7 @@ setinfo hp_l_igae \
 #Narrow Period
 smpl 2005:03 2020:10
 
-#Stationary adjustment  
+#Stationary test  
 GUI_PP(hp_l_igae_c, 1, 0, 1)
 GUI_PP(crexpigae_a, 0, 0, 1)
 GUI_PP(infagriN_a, 1, 0, 1)
@@ -61,7 +61,6 @@ GUI_PP(infpgen_a, 1, 0, 1)
 #Model
 #Classification: Niño & Niña vs Neutral
 #Dummy=1 means Niño & Niña, =0 means Neutral
-  
 #Model with the MEI index lagged 12 periods as the trigger variable 
   
 ##Variables
