@@ -65,7 +65,7 @@ GUI_PP(infpgen_a, 1, 0, 1)
 #Model with the MEI index lagged 12 periods as the trigger variable 
   
 ##Variables
-list endogenous = hp_l_igae_c crexpigae_a expcrinf infsene_a crcambio_a cetes91 # Endogenous variables list
+list endogenous = hp_l_igae_c crexpigae_a expcrinf infsene_a crcambio_a cetes91 # Endogenous variables lis. To replicate the results with agricultural inflation replace variable infsene_a with infagriN_a.
 list exogenous =  VIX indcomFAO_a indcomIMF_a
 
 ##Lag selection for Local Projection---------------------------------------------------------------------------------------------------------
