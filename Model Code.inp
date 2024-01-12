@@ -1,5 +1,5 @@
 
-#Model & Results_v2
+#Model & Results
 
 #Packages
 include LocalProjection.gfn
@@ -9,7 +9,7 @@ include PPtest.gfn
 clear
 set verbose off
 open \
-"...\Model Data Levels.csv" #path
+"C:\Users\Anna Karina\Documents\Asistente Dr. Ventosa\Paper\Code & Data\Model Data Levels.csv" #path
 setobs 12 1960:01 --time-series #define frequency
 
 #Seasonal adjustment already made
@@ -46,7 +46,7 @@ setinfo hp_l_igae \
 smpl 2005:03 2020:10
 
 #Stationary adjustment  
-GUI_PP(igae, 1, 0, 1)
+GUI_PP(hp_l_igae_c, 1, 0, 1)
 GUI_PP(crexpigae_a, 0, 0, 1)
 GUI_PP(infagriN_a, 1, 0, 1)
 GUI_PP(infsene_a, 1, 0, 1)
@@ -65,7 +65,7 @@ GUI_PP(infpgen_a, 1, 0, 1)
 #Model with the MEI index lagged 12 periods as the trigger variable 
   
 ##Variables
-list endogenous = hp_l_igae_c crexpigae_a infsene_a expcrinf crcambio_a cetes91 # Endogenous variables list
+list endogenous = hp_l_igae_c crexpigae_a expcrinf infsene_a crcambio_a cetes91 # Endogenous variables list
 list exogenous =  VIX indcomFAO_a indcomIMF_a
 
 ##Lag selection for Local Projection---------------------------------------------------------------------------------------------------------
@@ -98,10 +98,10 @@ scalar constant = 1 					# Boolean: Include constant? (1.- Yes, 0.- No).
 scalar nlags = 1 		 				# Integer: Number of lags for the endogenous variables. 
 scalar exog_nlags = 1  					# Integer: Number of lags for the exogenous variables. Not required if exogenous is null.
 scalar contemp = 0						# Boolean: Contemporaneous effect of exogenous variables (1.- Yes, 0.- No). 
-scalar ConfInterv = 0.99				# Scalar: Confidence interval in the IRF. Default = 0.95. 
+scalar ConfInterv = 0.90				# Scalar: Confidence interval in the IRF. Default = 0.95. 
 scalar shocksize = 0 					# Boolean: Shock size (0.- One standard deviation shock, 1.- One unit shock).
 scalar PositionShock = 1				# Integer: Position of the shock variable (number of variable) in the list of endogenous variables. 
-scalar PositionResponse = 3				# Integer: Position of the response variable (number of variable) in the list of endogenous variables. 
+scalar PositionResponse = 4				# Integer: Position of the response variable (number of variable) in the list of endogenous variables. 
 
 list trigger = MEI12_3 						# List: Switching/trigger variable for the high/low regime. Only one variable allowed. 
 scalar logisticfun = 0			        # Boolean: Plug the switching variable into the transition function? (1. Yes, 0. No)
@@ -124,4 +124,6 @@ eval nonlinearmodel.R1_IRF
 eval nonlinearmodel.R2_IRF
 
 \
+
+
 
